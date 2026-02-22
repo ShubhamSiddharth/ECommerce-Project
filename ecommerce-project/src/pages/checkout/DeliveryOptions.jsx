@@ -8,7 +8,7 @@ export function DeliveryOptions({ deliveryOptions, cartItem}) {
       {deliveryOptions.map((deliveryOption) => {
         let priceString = "FREE Shipping";
 
-        if (deliveryOptions.priceCents > 0) {
+        if (deliveryOption.priceCents > 0) {
           priceString = `${formatMoney(deliveryOption.priceCents)} - Shipping`;
         }
         return (
