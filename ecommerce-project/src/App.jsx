@@ -8,6 +8,8 @@ import { TrackingPage } from "./pages/TrackingPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { useState, useEffect } from "react";
 
+window.axios = axios;
+
 function App() {
   const [cart, setCart] = useState([]);
 
