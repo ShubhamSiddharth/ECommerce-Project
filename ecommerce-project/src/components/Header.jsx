@@ -1,4 +1,4 @@
-import { NavLink,useNavigate } from "react-router";
+import { NavLink,useNavigate,useSearchParams } from "react-router";
 import CartIcon from "../assets/images/icons/cart-icon.png";
 import SearchIcon from "../assets/images/icons/search-icon.png";
 import LogoWhite from "../assets/images/logo-white.png";
@@ -8,7 +8,15 @@ import "./header.css";
 
 export function Header({ cart }) {
   const navigate = useNavigate();
-  const [search, setSearch] = useState("");
+  const [searchParams] = useSearchParams();
+
+  // I need to use a different variable name since "search"
+  // is already being used below.
+  const searchText = searchParams.get('search');
+
+  // || '' is a shortcut. It means if searchText does not exist
+  // it will use a default value of ''.
+  const [search, setSearch] = useState(searchText || '');
 
   const updateSearchInput = (event) => {
     setSearch(event.target.value);
